@@ -1,2 +1,2 @@
-# supercop
-super cop app
+# Supercop
+Supercop app cordova/phonegap files
