@@ -8,10 +8,10 @@
         id        = "com.supercop.app"
         version   = "1.0.0">
 
-    <name>QR Scanner</name>
+    <name>Super Cop App</name>
 
     <description>
-        The Super Cop App for Admin and VLE.
+        The Super Cop App for Admin and VLE. QR Scanner.
     </description>
 
     <author href="https://thesupercop.com" email="info@thesupercop.com">
