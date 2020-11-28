@@ -5,17 +5,17 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:cdv="http://cordova.apache.org/ns/1.0"
-        id        = "com.drsolution.scanapp"
+        id        = "com.supercop.app"
         version   = "1.0.0">
 
     <name>QR Scanner</name>
 
     <description>
-        App for QR code scanner.
+        The Super Cop App for Admin and VLE.
     </description>
 
-    <author href="http://wowitsolutions.com" email="vishu3278@gmail.com">
-        WOW Team
+    <author href="https://thesupercop.com" email="info@thesupercop.com">
+        The Super Cop Team
     </author>
 
     <!--
