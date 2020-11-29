@@ -102,6 +102,8 @@ function cameraClean() {
     }
 }
 
+function openBrowser(url) { cordova.InAppBrowser.open(url, '_blank', 'location=yes'); }
+
 function exitApp() {
     navigator.app.exitApp();
 }
