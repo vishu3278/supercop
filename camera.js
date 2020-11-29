@@ -1,4 +1,5 @@
 function initdevice() {
+    console.log("Javascript loaded.");
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 
@@ -81,6 +82,7 @@ function cameraGo() {
     navigator.camera.getPicture(successCallback, errorCallback, options);
 
     function successCallback(imageData) {
+        console.log(imageData);
         document.getElementById("imgPreview").src = "data:image/jpeg;base64," + imageData;
         cameraClean();
     };
