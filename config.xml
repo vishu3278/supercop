@@ -112,8 +112,8 @@
         <preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="SplashScreenBackgroundColor" value="#002a50" /> <!-- defaults to "#464646" -->
         <preference name="ShowSplashScreen" value="true" /> <!-- defaults to "true" -->
-        <preference name="SplashScreenWidth" value="480" /> <!-- defaults to "170" -->
-        <preference name="SplashScreenHeight" value="800" /> <!-- defaults to "200" -->
+        <preference name="SplashScreenWidth" value="720" /> <!-- defaults to "170" -->
+        <preference name="SplashScreenHeight" value="1280" /> <!-- defaults to "200" -->
         
         <!-- <icon src="icon2.png" density="ldpi" />
         <icon src="icon2.png" density="mdpi" />
