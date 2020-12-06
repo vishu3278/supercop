@@ -1,3 +1,4 @@
+
 /**
  * Convert a base64 string in a Blob according to the data and contentType.
  * 
@@ -68,7 +69,6 @@ var options = {
 var pdfhtml = '<html><body style="font-size:120%">This is the pdf content</body></html>';
 
 function generatePdf() {
-    console.log("function hit");
     pdf.fromData(pdfhtml , options)
         .then(function(base64){               
             // To define the type of the Blob
@@ -76,10 +76,12 @@ function generatePdf() {
             
             console.warn(cordova.file);
             // if cordova.file is not available use instead :
-            var folderpath = "file:///storage/emulated/0/Download/";
-            //var folderpath = cordova.file.externalDataDirectory + "Download/"; //you can select other folders
-            savebase64AsPDF(folderpath, fileName, base64, contentType);
-            console.log("success");
+            if (cordova.file) {
+                var folderpath = cordova.file.externalDataDirectory + "Download/"; //you can select other folders
+            } else {
+                var folderpath = "file:///storage/emulated/0/Download/";
+            }
+            savebase64AsPDF(folderpath, fileName, base64, contentType);          
         })  
         .catch((err)=>console.err(err));
 }
