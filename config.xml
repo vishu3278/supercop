@@ -61,6 +61,7 @@
         <!-- <plugin name="cordova-plugin-qr-barcode-scanner" version="~8.0" /> -->
         <!-- <plugin name="phonegap-plugin-barcodescanner" version="~8.0" /> -->
         <plugin name="cordova-plugin-zxing" version="~1.0" />
+        <plugin name="cordova-plugin-file-downloader" version="~6.0" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
