@@ -6,8 +6,9 @@ var options = {
 };
  
 var pdfhtml = '<html><body style="font-size:120%">This is the pdf content</body></html>';
-
+alert("file hit");
 function generatePdf() {
+    console.log("function hit");
     pdf.fromData(pdfhtml , options)
         .then(function(base64){               
             // To define the type of the Blob
@@ -16,7 +17,8 @@ function generatePdf() {
             // if cordova.file is not available use instead :
             // var folderpath = "file:///storage/emulated/0/Download/";
             var folderpath = cordova.file.externalRootDirectory + "Download/"; //you can select other folders
-            savebase64AsPDF(folderpath, fileName, base64, contentType);          
+            savebase64AsPDF(folderpath, fileName, base64, contentType);
+            console.log("success");
         })  
         .catch((err)=>console.err(err));
 }
