@@ -46,8 +46,8 @@
     
     <plugin name="cordova-plugin-camera" spec="2.4.1" />
     <plugin name="cordova-plugin-dialogs" version="~2.0.2" />
-    <!-- <plugin name="cordova-plugin-file" version="~6.0.0" />
-    <plugin name="cordova-plugin-media" version="~5.0.3" />
+    <plugin name="cordova-plugin-file" version="~6.0.0" />
+    <!--<plugin name="cordova-plugin-media" version="~5.0.3" />
     <plugin name="cordova-plugin-media-capture" spec="~3.0.3" /> -->
     <plugin name="cordova-plugin-network-information" version="~2.0.0" />
     <plugin name="cordova-plugin-splashscreen" version="~5.0.0" />
