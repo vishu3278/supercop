@@ -8,6 +8,7 @@ function onDeviceReady() {
     checkConnection();
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);
+    window.open = cordova.InAppBrowser.open;
     console.warn(cordova.file);
 }
 
