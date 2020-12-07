@@ -35,6 +35,8 @@
  
     <preference name="android-installLocation" value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly'
      is device memory. 'preferExternal' is SDCard. -->
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+        <preference name="AndroidExtraFilesystems" value="files,cache, sdcard, cache-external, files-external" />
     
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <!-- <preference name="phonegap-version" value="~6.3.0" /> -->
