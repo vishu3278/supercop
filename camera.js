@@ -108,7 +108,7 @@ function cameraClean() {
 
 function openBrowser(url) {
     console.log(url);
-    cordova.InAppBrowser.open(url, '_self','location=yes');
+    cordova.InAppBrowser.open(url, '_system','location=yes');
 }
 
 function exitApp() {
