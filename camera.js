@@ -1,6 +1,8 @@
 function initdevice() {
-    console.log("Javascript loaded.");
-    document.addEventListener("deviceready", onDeviceReady, false);
+    console.log("body loaded");
+    setTimeout(function () {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }, 2500);
 }
 
 function onDeviceReady() {
@@ -8,7 +10,6 @@ function onDeviceReady() {
     checkConnection();
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);
-    document.getElementById("btnFile").addEventListener("click", copyFile);
     getPermFolder();
 }
 
