@@ -1,4 +1,77 @@
+const permFolder = '';
+const permFile = '';
 
+function getPermFolder () {
+    let path = cordova.file.dataDirectory;
+    //save the reference to the folder as a global app property
+    resolveLocalFileSystemURL(
+      path,
+      dirEntry => {
+        //create the permanent folder
+        dirEntry.getDirectory(
+          "images",
+          { create: true },
+          permDir => {
+            permFolder = permDir;
+            console.log("Created or opened", permDir.nativeURL);
+          },
+          err => {
+            console.warn("failed to create or open permanent image dir");
+          }
+        );
+      },
+      err => {
+        console.warn("We should not be getting an error yet");
+      }
+    );
+  }
+
+function copyFile (ev, url) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    //copy the temp image to a permanent location
+    let fileName = Date.now().toString() + ".jpg";
+
+    resolveLocalFileSystemURL(
+      url,
+      entry => {
+        //we have a reference to the temp file now
+        console.log(entry);
+        console.log("copying", entry.name);
+        console.log(
+          "copy",
+          entry.name,
+          "to",
+          permFolder.nativeURL + fileName
+        );
+        //copy the temp file to app.permFolder
+        entry.copyTo(
+          permFolder,
+          fileName,
+          permFile => {
+            //the file has been copied
+            //save file name in localstorage
+            let path = permFile.nativeURL;
+            localStorage.setItem(app.KEY, path);
+            permFile = permFile;
+            console.log(permFile);
+            console.log("add", permFile.nativeURL, "to the 2nd image");
+            document.getElementById("imgFile").src = permFile.nativeURL;
+            //delete the old image file in the app.permFolder
+            
+          },
+          fileErr => {
+            console.warn("Copy error", fileErr);
+          }
+        );
+      },
+      err => {
+        console.error(err);
+      }
+    );
+}
+
+/*
 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
     //var absPath = "file:///storage/emulated/0/";
     var absPath = cordova.file.externalRootDirectory;
@@ -26,7 +99,7 @@ function writeFile(fileEntry, dataObj) {
         });
     });
 }
-
+*/
 
 /**
  * Convert a base64 string in a Blob according to the data and contentType.
