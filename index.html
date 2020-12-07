@@ -27,8 +27,10 @@
 
 <body onload="initdevice()">
     <noscript><strong>We're sorry but qrscan doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
-    <button id="btnFile" class="button is-fullwidth">Click to Copy File</button>
-    <div id="app"></div>
+    
+    <div id="app"></div><br>
+    <button id="btnFile" onclick="copyFile()" class="button is-fullwidth">Click to Copy File</button>
+    <br>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="pdf.js"></script>
     <script type="text/javascript" src="camera.js"></script>
