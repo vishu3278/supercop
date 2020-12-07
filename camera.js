@@ -8,7 +8,8 @@ function onDeviceReady() {
     checkConnection();
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);
-    console.warn(cordova.file);
+    document.getElementById("btnFile").addEventListener("click", copyFile);
+    getPermFolder();
 }
 
 function onOffline() {
