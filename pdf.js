@@ -1,4 +1,33 @@
 
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+    //var absPath = "file:///storage/emulated/0/";
+    var absPath = cordova.file.externalRootDirectory;
+    var fileDir = cordova.file.externalDataDirectory.replace(cordova.file.externalRootDirectory, '');
+    var fileName = "somename.txt";
+    var filePath = fileDir + fileName;
+
+    fs.root.getFile(filePath, { create: true, exclusive: false }, function (fileEntry) {
+        writeFile(fileEntry, BINARY_ARR).then(function(){
+          //do something here
+        });
+    }, function(err) {});
+}, function(err) {});
+
+function writeFile(fileEntry, dataObj) {
+    return $q(function (resolve, reject) {
+        fileEntry.createWriter(function (fileWriter) {
+            fileWriter.onwriteend = function () {
+                resolve();
+            };
+            fileWriter.onerror = function (e) {
+                reject(e);
+            };
+            fileWriter.write(dataObj);
+        });
+    });
+}
+
+
 /**
  * Convert a base64 string in a Blob according to the data and contentType.
  * 
