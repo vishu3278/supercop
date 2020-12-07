@@ -175,13 +175,16 @@ var options = {
  
 var pdfhtml = '<html><body style="font-size:120%">This is the pdf content</body></html>';
 
+console.log(fileName, options, pdfhtml);
+
 function generatePdf() {
+    console.log(options);
     pdf.fromData(pdfhtml , options)
         .then(function(base64){               
             // To define the type of the Blob
             var contentType = "application/pdf";
             
-            console.warn(cordova.file);
+            console.log(cordova.file);
             // if cordova.file is not available use instead :
             if (cordova.file) {
                 var folderpath = cordova.file.externalDataDirectory + "Download/"; //you can select other folders
