@@ -3,6 +3,7 @@ const permFile = '';
 
 function getPermFolder () {
     let path = cordova.file.dataDirectory;
+    console.log("getPermFolder fired");
     //save the reference to the folder as a global app property
     resolveLocalFileSystemURL(
       path,
