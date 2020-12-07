@@ -1,5 +1,7 @@
-const permFolder = '';
-const permFile = '';
+var permFolder = '';
+var permFile = '';
+
+console.log("script loaded");
 
 function getPermFolder () {
     let path = cordova.file.dataDirectory;
@@ -32,6 +34,8 @@ function copyFile (ev, url) {
     ev.stopPropagation();
     //copy the temp image to a permanent location
     let fileName = Date.now().toString() + ".jpg";
+    
+    console.log(fileName);
 
     resolveLocalFileSystemURL(
       url,
