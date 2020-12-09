@@ -70,7 +70,7 @@ function scanQR(arguments) {
     }
 }
 
-function cameraGo() {
+function cameraGo(imgId) {
     var options = {
         sourceType: Camera.PictureSourceType.CAMERA,
         EncodingType: 'jpeg',
@@ -86,7 +86,12 @@ function cameraGo() {
 
     function successCallback(imageData) {
         console.log(imageData);
-        document.getElementById("imgPreview").src = "data:image/jpeg;base64," + imageData;
+        if(imgId){
+            document.getElementById(imgId).src = "data:image/jpeg;base64," + imageData;
+        }else{
+           document.getElementById("imgPreview").src = "data:image/jpeg;base64," + imageData;
+        }
+        
         cameraClean();
     };
 
