@@ -70,7 +70,7 @@ function scanQR(arguments) {
     }
 }
 
-function cameraGo(imgId) {
+function cameraGo(event) {
     var options = {
         sourceType: Camera.PictureSourceType.CAMERA,
         EncodingType: 'jpeg',
@@ -81,15 +81,17 @@ function cameraGo(imgId) {
         destinationType: Camera.DestinationType.DATA_URL,
         saveToPhotoAlbum: true
     };
-
+    var imgEl = document.querySelector("#"+event.target.getAttribute("value"));
     navigator.camera.getPicture(successCallback, errorCallback, options);
-
-    function successCallback(imageData) {
-        console.log(imageData);
-        if(imgId){
-            document.getElementById(imgId).src = "data:image/jpeg;base64," + imageData;
+    
+    function successCallback(imageData,event) {
+        console.log(imgEl, imageData);
+        if(imgEl != null){
+            imgEl.src = "data:image/jpeg;base64," + imageData;
+        }else if(document.querySelector("#imgPreview") != null){    
+           document.querySelector("#imgPreview").src = "data:image/jpeg;base64," + imageData;
         }else{
-           document.getElementById("imgPreview").src = "data:image/jpeg;base64," + imageData;
+            navigator.notification.alert("Image placeholder not found");
         }
         
         cameraClean();
