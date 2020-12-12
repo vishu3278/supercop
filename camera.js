@@ -87,7 +87,7 @@ function cameraGo(event) {
     function successCallback(imageData,event) {
         console.log(imgEl, imageData);
         if(imgEl != null){
-            imgEl.value = "data:image/jpeg;base64," + imageData;
+            imgEl.src = "data:image/jpeg;base64," + imageData;
         }else if(document.querySelector("#imgPreview") != null){    
            document.querySelector("#imgPreview").src = "data:image/jpeg;base64," + imageData;
         }else{
