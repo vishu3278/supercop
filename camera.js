@@ -1,12 +1,12 @@
 function initdevice() {
-    console.log("body loaded");
+    alert("Body loaded");
     setTimeout(function () {
         document.addEventListener("deviceready", onDeviceReady, false);
-    }, 2500);
+    }, 3500);
 }
 
 function onDeviceReady() {
-    navigator.notification.alert("device ready");
+    navigator.notification.alert("Device Ready");
     checkConnection();
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);
