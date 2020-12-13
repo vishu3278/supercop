@@ -1,8 +1,8 @@
 function initdevice() {
-    alert("Body loaded");
+    console.log("Body loaded");
     setTimeout(function () {
         document.addEventListener("deviceready", onDeviceReady, false);
-    }, 3500);
+    }, 3000);
 }
 
 function onDeviceReady() {
@@ -10,7 +10,6 @@ function onDeviceReady() {
     checkConnection();
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);
-    getPermFolder();
 }
 
 function onOffline() {
