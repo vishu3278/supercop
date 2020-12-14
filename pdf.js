@@ -1,111 +1,26 @@
-var permFolder = '';
-var permFile = '';
 
-console.log("script loaded");
-
-function getPermFolder () {
-    let path = cordova.file.dataDirectory;
-    console.log("getPermFolder fired");
-    //save the reference to the folder as a global app property
-    resolveLocalFileSystemURL(
-      path,
-      dirEntry => {
-        //create the permanent folder
-        dirEntry.getDirectory(
-          "images",
-          { create: true },
-          permDir => {
-            permFolder = permDir;
-            console.log("Created or opened", permDir.nativeURL);
-          },
-          err => {
-            console.warn("failed to create or open permanent image dir");
-          }
-        );
-      },
-      err => {
-        console.warn("We should not be getting an error yet");
-      }
-    );
-  }
-
-function copyFile (ev, url) {
-    ev.preventDefault();
-    ev.stopPropagation();
-    //copy the temp image to a permanent location
-    let fileName = Date.now().toString() + ".jpg";
+function html2pdf(){
+    var fileName = "myPdfFile.pdf";
+    var options = {
+        documentSize: 'A4',
+        type: 'base64'                
+    };
+    var pdfhtml = '<html><body style="font-size:120%">This is the demo <strong>pdf</strong> content generated from raw <em>html</em>.</body></html>';
     
-    console.log(fileName);
-
-    resolveLocalFileSystemURL(
-      url,
-      entry => {
-        //we have a reference to the temp file now
-        console.log(entry);
-        console.log("copying", entry.name);
-        console.log(
-          "copy",
-          entry.name,
-          "to",
-          permFolder.nativeURL + fileName
-        );
-        //copy the temp file to app.permFolder
-        entry.copyTo(
-          permFolder,
-          fileName,
-          permFile => {
-            //the file has been copied
-            //save file name in localstorage
-            let path = permFile.nativeURL;
-            localStorage.setItem(app.KEY, path);
-            permFile = permFile;
-            console.log(permFile);
-            console.log("add", permFile.nativeURL, "to the 2nd image");
-            document.getElementById("imgFile").src = permFile.nativeURL;
-            //delete the old image file in the app.permFolder
-            
-          },
-          fileErr => {
-            console.warn("Copy error", fileErr);
-          }
-        );
-      },
-      err => {
-        console.error(err);
-      }
-    );
+    pdf.fromData(pdfhtml , options)
+        .then(function(base64){               
+            // To define the type of the Blob
+            var contentType = "application/pdf";
+            var folderpath;    
+            if (cordova.file){ //is not available use instead
+                folderpath = "file:///storage/emulated/0/Download/";
+            }else{
+                folderpath = cordova.file.externalRootDirectory + "Download/"; //you can select other folders
+            }
+            savebase64AsPDF(folderpath, fileName, base64, contentType);          
+        })  
+        .catch((err)=>console.err(err));
 }
-
-/*
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-    //var absPath = "file:///storage/emulated/0/";
-    var absPath = cordova.file.externalRootDirectory;
-    var fileDir = cordova.file.externalDataDirectory.replace(cordova.file.externalRootDirectory, '');
-    var fileName = "somename.txt";
-    var filePath = fileDir + fileName;
-
-    fs.root.getFile(filePath, { create: true, exclusive: false }, function (fileEntry) {
-        writeFile(fileEntry, BINARY_ARR).then(function(){
-          //do something here
-        });
-    }, function(err) {});
-}, function(err) {});
-
-function writeFile(fileEntry, dataObj) {
-    return $q(function (resolve, reject) {
-        fileEntry.createWriter(function (fileWriter) {
-            fileWriter.onwriteend = function () {
-                resolve();
-            };
-            fileWriter.onerror = function (e) {
-                reject(e);
-            };
-            fileWriter.write(dataObj);
-        });
-    });
-}
-*/
-
 /**
  * Convert a base64 string in a Blob according to the data and contentType.
  * 
@@ -164,34 +79,4 @@ function savebase64AsPDF(folderpath,filename,content,contentType){
             });
         });
     });
-}
-
-var fileName = "myPdfFile.pdf";
-    
-var options = {
-    documentSize: 'A4',
-    type: 'base64'                
-};
- 
-var pdfhtml = '<html><body style="font-size:120%">This is the pdf content</body></html>';
-
-console.log(fileName, options, pdfhtml);
-
-function generatePdf() {
-    console.log(options);
-    pdf.fromData(pdfhtml , options)
-        .then(function(base64){               
-            // To define the type of the Blob
-            var contentType = "application/pdf";
-            
-            console.log(cordova.file);
-            // if cordova.file is not available use instead :
-            if (cordova.file) {
-                var folderpath = cordova.file.externalDataDirectory + "Download/"; //you can select other folders
-            } else {
-                var folderpath = "file:///storage/emulated/0/Download/";
-            }
-            savebase64AsPDF(folderpath, fileName, base64, contentType);          
-        })  
-        .catch((err)=>console.err(err));
 }
