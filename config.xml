@@ -65,6 +65,7 @@
         <plugin name="cordova-plugin-zxing" version="~1.0" />
         <plugin name="cordova-pdf-generator" version="~2.1" />
         <plugin name="cordova-plugin-downloadimage-to-gallery" version="~1.0" />
+        <plugin name="cordova-plugin-save-image-gallery" version="0.0.2" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
