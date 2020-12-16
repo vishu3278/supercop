@@ -59,11 +59,12 @@
     
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-        <!-- <plugin name="cordova-plugin-android-permissions" /> -->
+        <plugin name="cordova-plugin-android-permissions" />
         <!-- <plugin name="cordova-plugin-qr-barcode-scanner" version="~8.0" /> -->
         <!-- <plugin name="phonegap-plugin-barcodescanner" version="~8.0" /> -->
         <plugin name="cordova-plugin-zxing" version="~1.0" />
         <plugin name="cordova-pdf-generator" version="~2.1" />
+        <plugin name="cordova-plugin-downloadimage-to-gallery" version="~1.0" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
