@@ -1,4 +1,13 @@
-
+function saveImg(){
+    var options = { limit: 1 };
+    navigator.device.capture.captureImage(captureSuccess, captureError, options);
+}
+function captureSuccess(mediaFiles) {
+    navigator.notification.alert(mediaFiles[0].width + 'w/h' + mediaFiles[0].height);
+};
+function captureError(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
 function html2pdf(){
     var fileName = "myPdfFile.pdf";
     var options = {
