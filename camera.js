@@ -118,10 +118,10 @@ function openBrowser(url) {
     cordova.InAppBrowser.open(url, '_system','location=yes');
 }
 
-function openPrint(url, content) {
+function openPrint(url) {
     console.log(url);
-    var mywindow = cordova.InAppBrowser.open(url, '_self', 'location=yes');
-    mywindow.document.write(content);
+    var mywindow = window.cordova.InAppBrowser.open(url, '_blank', "hidden=no,location=no,clearsessioncache=yes,clearcache=yes");
+    //mywindow.document.write(content);
 }
 
 function exitApp() {
