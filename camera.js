@@ -120,7 +120,7 @@ function openBrowser(url) {
 
 function openPrint(url) {
     console.log(url);
-    var mywindow = window.cordova.InAppBrowser.open(url, '_blank', "hidden=no,location=no,clearsessioncache=yes,clearcache=yes");
+    cordova.InAppBrowser.open(url, '_blank', "hidden=no,location=no,clearsessioncache=yes,clearcache=yes");
     //mywindow.document.write(content);
 }
 
