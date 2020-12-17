@@ -118,6 +118,12 @@ function openBrowser(url) {
     cordova.InAppBrowser.open(url, '_system','location=yes');
 }
 
+function openPrint(url, content) {
+    console.log(url);
+    var mywindow = cordova.InAppBrowser.open(url, '_self', 'location=yes');
+    mywindow.document.write(content);
+}
+
 function exitApp() {
     navigator.app.exitApp();
 }
