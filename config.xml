@@ -114,8 +114,8 @@
         <preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="SplashScreenBackgroundColor" value="#002a50" /> <!-- defaults to "#464646" -->
         <preference name="ShowSplashScreen" value="true" /> <!-- defaults to "true" -->
-        <preference name="SplashScreenWidth" value="720" /> <!-- defaults to "170" -->
-        <preference name="SplashScreenHeight" value="1280" /> <!-- defaults to "200" -->
+        <preference name="SplashScreenWidth" value="170" /> <!-- defaults to "170" -->
+        <preference name="SplashScreenHeight" value="200" /> <!-- defaults to "200" -->
         
         <!-- <icon src="icon2.png" density="ldpi" />
         <icon src="icon2.png" density="mdpi" />
@@ -127,11 +127,10 @@
         <splash src="splash.png" density="land-mdpi"/>
         <splash src="splash.png" density="land-xhdpi"/>-->
 
-        <splash src="splash.png" density="port-hdpi"/>
+        <!-- <splash src="splash.png" density="port-hdpi"/>
         <splash src="splash.png" density="port-ldpi"/>
         <splash src="splash.png" density="port-mdpi"/>
-        <splash src="splash.png" density="port-xhdpi"/>
-        
+        <splash src="splash.png" density="port-xhdpi"/> -->
         
     </platform>
 
