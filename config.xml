@@ -63,7 +63,7 @@
         <!-- <plugin name="cordova-plugin-qr-barcode-scanner" version="~8.0" /> -->
         <!-- <plugin name="phonegap-plugin-barcodescanner" version="~8.0" /> -->
         <plugin name="cordova-plugin-zxing" version="~1.0" />
-        <plugin name="cordova-pdf-generator" version="~2.1" />
+        <!-- <plugin name="cordova-pdf-generator" version="~2.1" /> -->
         <plugin name="cordova-plugin-save-image-gallery" version="0.0.26" />
 
     <!-- Define app icon for each platform. -->
@@ -127,10 +127,10 @@
         <splash src="splash.png" density="land-mdpi"/>
         <splash src="splash.png" density="land-xhdpi"/>-->
 
-        <!-- <splash src="splash.png" density="port-hdpi"/>
+        <splash src="splash.png" density="port-hdpi"/>
         <splash src="splash.png" density="port-ldpi"/>
         <splash src="splash.png" density="port-mdpi"/>
-        <splash src="splash.png" density="port-xhdpi"/> -->
+        <splash src="splash.png" density="port-xhdpi"/>
         
         
     </platform>
