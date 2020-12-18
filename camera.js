@@ -1,5 +1,5 @@
 function initdevice() {
-    console.log("Body loaded");
+    alert("Body loaded");
     setTimeout(function () {
         document.addEventListener("deviceready", onDeviceReady, false);
     }, 3000);
@@ -113,6 +113,10 @@ function cameraClean() {
     }
 }
 
+function exitApp() {
+    navigator.app.exitApp();
+}
+
 function openBrowser(url) {
     console.log(url);
     cordova.InAppBrowser.open(url, '_system','location=yes');
@@ -122,11 +126,7 @@ function openPrint(url) {
     console.log(url);
     cordova.InAppBrowser.open(url, '_self', 'location=yes");
 }
-
-function exitApp() {
-    navigator.app.exitApp();
-}
-
+                              
 /* other images and pdf codes */
 function saveImg(){
     navigator.notification.alert("function fired");
