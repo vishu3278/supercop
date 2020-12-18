@@ -1,5 +1,5 @@
 function initdevice() {
-    alert("Body loaded");
+    console.log("Body loaded");
     setTimeout(function () {
         document.addEventListener("deviceready", onDeviceReady, false);
     }, 3000);
