@@ -122,7 +122,8 @@ function openBrowser(url) {
     cordova.InAppBrowser.open(url, '_system', 'location=yes');
 }
 
-function openPrint(url) {
+function openPrint(e) {
+    var url = e.currentTarget.getAttribute('title');
     console.log(url);
     cordova.InAppBrowser.open(url, '_self', 'location=yes');
 }
